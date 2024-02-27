@@ -1,0 +1,16 @@
+<table *ngFor="let item of items;index as i">
+    <tr >
+        <td width="10%" (click)="show_comments(item.id_post)"><i>view comments</i></td>
+        <td width="10%">{{item.dateCreated}}</td>
+        <td width="10%">{{item.user.name_user}}</td>
+        <td width="70%">{{item.txt}}</td>
+    </tr>
+    <ng-container  *ngIf='item.id_post==idpost && subitems.length!=0'>
+        <tr *ngFor="let subitem of subitems;index as i">
+            <td><i></i></td>
+            <td>{{subitem.dateCreated}}</td>
+            <td>{{subitem.user.name_user}}</td>
+            <td>{{subitem.txt}}</td>
+        </tr>
+    </ng-container>
+</table>
